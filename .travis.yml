@@ -10,12 +10,12 @@ script:
   - docker run -e CI=true vikramnidwanche/MultiContainer npm test -- --coverage
 
 after_success:
-  - docker build -t vikramnidwanche/Multi-client ./client
-  - docker build -t vikramnidwanche/Multi-worker ./worker
-  - docker build -t vikramnidwanche/Multi-server ./server
-  - docker build -t vikramnidwanche/Multi-nginx ./nginx
+  - docker build -t vikramnidwanche/multi-client ./client
+  - docker build -t vikramnidwanche/multi-worker ./worker
+  - docker build -t vikramnidwanche/multi-server ./server
+  - docker build -t vikramnidwanche/multi-nginx ./nginx
   - echo "$DOCKER_PWD" | docker login -u "$DOCKER_ID" --password-stdin  
-  - docker push vikramnidwanche/Multi-client
-  - docker push vikramnidwanche/Multi-worker
-  - docker push vikramnidwanche/Multi-server
-  - docker push vikramnidwanche/Multi-nginx
+  - docker push vikramnidwanche/multi-client
+  - docker push vikramnidwanche/multi-worker
+  - docker push vikramnidwanche/multi-server
+  - docker push vikramnidwanche/multi-nginx
