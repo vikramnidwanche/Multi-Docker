@@ -4,10 +4,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t vikramnidwanche/MultiContainer -f ./client/Dockerfile.dev ./client
+  - docker build -t vikramnidwanche/multicontainer -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true vikramnidwanche/MultiContainer npm test -- --coverage
+  - docker run -e CI=true vikramnidwanche/multicontainer npm test -- --coverage
 
 after_success:
   - docker build -t vikramnidwanche/multi-client ./client
